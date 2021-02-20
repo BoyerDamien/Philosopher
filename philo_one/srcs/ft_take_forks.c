@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:27:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 17:25:14 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/20 19:45:28 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ inline static void	*check_time(void *philo)
 	p = (t_philo *)philo;
 	while (p->forks_taken != 2)
 	{
-		if (ft_get_timestamp(p) > p->time_limits[DIED])
+		if (ft_get_timestamp(p) > p->time_limits[DIED] + 3)
 		{
 			ft_finish(p, DIED);
 			return (NULL);
 		}
+		ft_wait(1);
 	}
 	return (NULL);
 }
@@ -42,7 +43,7 @@ inline static void	take_forks(t_philo *philo)
 	pthread_create(&th, NULL, check_time, philo);
 	pthread_detach(th);
 	pthread_mutex_lock(&philo->lock_dead);
-	pthread_mutex_lock(&philos[(id) % n].lock_dead);
+	pthread_mutex_lock(&philos[id % n].lock_dead);
 	pthread_mutex_lock(philo->forks[0]);
 	ft_output(philo, "has taken a fork");
 	pthread_mutex_lock(philo->forks[1]);

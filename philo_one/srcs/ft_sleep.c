@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:10:34 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 16:44:20 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/20 19:39:57 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 inline void	ft_sleep(t_philo *philo)
 {
 	ft_output(philo, "is sleeping");
-	usleep(philo->time_limits[SLEEP] * 1000);
+	ft_wait(philo->time_limits[SLEEP]);
 	philo->state = THINK;
 }

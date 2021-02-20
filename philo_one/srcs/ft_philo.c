@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:47:03 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 17:19:40 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/20 19:54:28 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	set_arrays(t_philo *this, const t_args *args)
 	this->actions[SLEEP] = ft_sleep;
 	this->actions[THINK] = ft_think;
 	this->actions[FORK] = ft_take_forks;
-	this->time_limits[DIED] = args->time_to_die;
+	this->time_limits[DIED] = args->time_to_die + 4;
 	this->time_limits[EAT] = args->time_to_eat;
 	this->time_limits[SLEEP] = args->time_to_sleep;
 	this->time_limits[THINK] = 0;

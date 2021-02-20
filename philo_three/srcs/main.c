@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:03:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/18 20:23:57 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/20 19:40:13 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_kill_threads(t_table *table)
 			i++;
 		}
 	}
-	usleep(1000 * 1000);
+	ft_wait(1000);
 }
 
 void	ft_controller(t_table *table)

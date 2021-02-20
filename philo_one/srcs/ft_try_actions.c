@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:12:49 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 17:25:26 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/20 19:35:20 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ inline void	ft_try_actions(t_philo *philo)
 		ft_finish(philo, STOP);
 		return ;
 	}
-	remain = timestamp + philo->time_limits[philo->state];
+	remain = ft_get_timestamp(philo) + philo->time_limits[philo->state];
 	if (remain > philo->time_limits[DIED])
 	{
 		ft_wait(philo->time_limits[DIED] - timestamp);
