@@ -12,7 +12,7 @@
 
 #include "../includes/philo_two.h"
 
-long	ft_time_to_milli(struct timeval *time)
+inline long	ft_time_to_milli(struct timeval *time)
 {
 	return (time->tv_usec * 0.001 + time->tv_sec * 1000);
 }

@@ -6,14 +6,25 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 13:35:22 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 14:56:32 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:41:03 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_two.h"
 
-long	ft_wait(t_philo *philo, int time)
+static inline long	get_time(void)
 {
-	usleep(time * 1000);
-	return (ft_get_timestamp(philo));
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return (ft_time_to_milli(&time));
+}
+
+inline void	ft_wait(int time)
+{
+	long	finish;
+
+	finish = get_time() + time;
+	while (get_time() < finish)
+		usleep(1000);
 }
