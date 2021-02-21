@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:14:34 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 14:57:23 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 19:24:03 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ t_bool		ft_isnum(const char *str);
 t_bool		ft_check_args(int argc, const char **argv);
 t_args		ft_parse_args(int argc, const char **argv);
 
-long	ft_time_to_milli(struct timeval *time) __attribute__((pure));
+long		ft_time_to_milli(struct timeval *time) __attribute__((pure));
 int			ft_diff(struct timeval *n1, struct timeval *n2) \
 				__attribute__((pure));
 int			ft_get_timestamp(t_philo *philo) __attribute__((pure));
