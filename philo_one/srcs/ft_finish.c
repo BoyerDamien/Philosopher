@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:30:44 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 16:41:47 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 10:16:04 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ void	ft_finish(t_philo *philo, t_philo_state state)
 	pthread_mutex_lock(philo->lock_output);
 	if (*philo->alive)
 	{
-		*(philo->alive) = false;
 		if (state == DIED)
+		{
 			output(philo, "has died");
+			*(philo->alive) = false;
+		}
 		else if (state == STOP)
 			output(philo, "has finished");
 	}
