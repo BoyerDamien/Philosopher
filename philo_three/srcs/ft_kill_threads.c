@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_live.c                                          :+:      :+:    :+:   */
+/*   ft_kill_threads.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 15:45:30 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 19:18:34 by dboyer           ###   ########.fr       */
+/*   Created: 2021/02/21 17:26:50 by dboyer            #+#    #+#             */
+/*   Updated: 2021/02/21 19:18:29 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_three.h"
 
-void	ft_live(t_philo *philo, t_table *table)
+void	ft_kill_threads(t_table *table)
 {
-	philo->process = fork();
-	if (philo->process == 0)
+	int	i;
+
+	if (table)
 	{
-		ft_do(philo);
-		if (philo->state == DIED)
+		i = 0;
+		while (i < (int)table->n)
 		{
-			ft_clean_table(table);
-			exit(1);
+			kill(table->philosophers[i].process, SIGKILL);
+			i++;
 		}
-		ft_clean_table(table);
-		exit(0);
-	}
-	else if (philo->process < 0)
-	{
-		ft_clean_table(table);
-		perror("Fork !");
-		exit(-1);
 	}
 }

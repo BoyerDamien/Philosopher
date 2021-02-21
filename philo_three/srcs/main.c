@@ -6,26 +6,11 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:03:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 17:03:56 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 19:15:46 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_three.h"
-
-void	ft_kill_threads(t_table *table)
-{
-	int	i;
-
-	if (table)
-	{
-		i = 0;
-		while (i < (int)table->n)
-		{
-			kill(table->philosophers[i].process, SIGKILL);
-			i++;
-		}
-	}
-}
 
 void	ft_controller(t_table *table)
 {
@@ -36,16 +21,14 @@ void	ft_controller(t_table *table)
 	while (i < table->n)
 	{
 		waitpid(-1, &status, 0);
+		printf("Philo %d status = %d\n", i + 1, WEXITSTATUS(status));
 		if (WEXITSTATUS(status) != 0)
 		{
-			sem_wait(table->lock_output);
 			ft_kill_threads(table);
-			sem_post(table->lock_output);
 			break ;
 		}
 		i++;
 	}
-	ft_wait(1000);
 	ft_clean_table(table);
 }
 

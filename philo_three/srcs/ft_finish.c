@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:30:44 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 16:58:40 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 19:16:00 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_finish(t_philo *philo, t_philo_state state)
 		{
 			output(philo, "has died");
 			*(philo->alive) = false;
+			return ;
 		}
 		else if (state == STOP)
 			output(philo, "has finished");
