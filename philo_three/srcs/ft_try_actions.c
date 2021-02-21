@@ -12,13 +12,28 @@
 
 #include "../includes/philo_three.h"
 
-void	ft_try_actions(t_philo *philo)
+inline void	ft_try_actions(t_philo *philo, void (*action)(t_philo *philo))
 {
 	long	timestamp;
+	long	remain;
 
 	timestamp = ft_get_timestamp(philo);
-	if (timestamp < philo->time_limits[DIED])
-		philo->actions[philo->state](philo);
-	else
+	if (timestamp > philo->time_limits[DIED])
+	{
 		ft_finish(philo, DIED);
+		return ;
+	}
+	if (philo->n_eat == 0)
+	{
+		ft_finish(philo, STOP);
+		return ;
+	}
+	remain = ft_get_timestamp(philo) + philo->time_limits[philo->state];
+	if (remain > philo->time_limits[DIED])
+	{
+		ft_wait(philo->time_limits[DIED] - timestamp);
+		ft_finish(philo, DIED);
+		return ;
+	}
+	action(philo);
 }

@@ -6,7 +6,7 @@
 #    By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/20 09:03:17 by dboyer            #+#    #+#              #
-#    Updated: 2021/02/18 19:29:15 by dboyer           ###   ########.fr        #
+#    Updated: 2021/02/21 14:36:55 by dboyer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS    			=	./srcs/ft_atoi.c \
 						./srcs/ft_think.c\
 						./srcs/ft_wait.c\
 						./srcs/ft_get_timestamp.c\
+						./srcs/ft_diff.c\
 						./srcs/ft_output.c\
 						./srcs/ft_try_actions.c\
 						./srcs/ft_finish.c
@@ -52,7 +53,7 @@ OBJS				= 	$(SRCS:.c=.o)
 #								COMPILATION
 ################################################################################
 
-CFLAGS  			= 	-Werror -Wall -Wextra -O3 ${INCLUDES}
+CFLAGS  			= 	-Werror -Wall -Wextra -Ofast ${INCLUDES}
 CC      			= 	clang
 RM      			= 	rm -f
 

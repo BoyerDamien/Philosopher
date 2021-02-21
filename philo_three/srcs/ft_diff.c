@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_time_to_milli.c                                 :+:      :+:    :+:   */
+/*   ft_diff.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/21 13:37:37 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 14:56:32 by dboyer           ###   ########.fr       */
+/*   Created: 2021/02/21 13:39:55 by dboyer            #+#    #+#             */
+/*   Updated: 2021/02/21 14:41:21 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_three.h"
 
-inline long	ft_time_to_milli(struct timeval *time)
+inline int	ft_diff(struct timeval *n1, struct timeval *n2)
 {
-	return (time->tv_usec * 0.001 + time->tv_sec * 1000);
+	return (ft_time_to_milli(n1) - ft_time_to_milli(n2));
 }

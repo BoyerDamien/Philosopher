@@ -6,30 +6,11 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:03:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 19:40:13 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 16:56:23 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_three.h"
-
-t_bool	ft_is_died(t_table *table)
-{
-	int		i;
-	t_philo	philo;
-
-	if (table)
-	{
-		i = 0;
-		while (i < (int)table->n)
-		{
-			philo = table->philosophers[i];
-			if (philo.state == DIED || philo.state == STOP)
-				return (true);
-			i++;
-		}
-	}
-	return (false);
-}
 
 void	ft_kill_threads(t_table *table)
 {
@@ -44,16 +25,29 @@ void	ft_kill_threads(t_table *table)
 			i++;
 		}
 	}
-	ft_wait(1000);
 }
 
 void	ft_controller(t_table *table)
 {
 	int	status;
+	int	i;
 
-	waitpid(-1, &status, 0);
-	ft_kill_threads(table);
-	table->clean(table);
+	i = 0;
+	while (i < table->n)
+	{
+		waitpid(-1, &status, 0);
+		printf("exit status = %d\n", status);
+		if (WEXITSTATUS(status) != 0)
+		{
+			sem_wait(table->lock_output);
+			ft_kill_threads(table);
+			sem_post(table->lock_output);
+			break ;
+		}
+		i++;
+	}
+	ft_wait(1000);
+	ft_clean_table(table);
 }
 
 void	ft_deploy_philo(t_table *table)
@@ -65,7 +59,7 @@ void	ft_deploy_philo(t_table *table)
 		i = 0;
 		while (i < (int)table->n)
 		{
-			table->philosophers[i].live(&table->philosophers[i], table);
+			ft_live(&table->philosophers[i], table);
 			i++;
 		}
 	}
