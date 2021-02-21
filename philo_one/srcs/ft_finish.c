@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:30:44 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 10:16:04 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:56:32 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 inline static void	output(t_philo *philo, char *msg)
 {
-	long int	timestamp;
+	long	timestamp;
 
 	timestamp = ft_get_timestamp(philo);
 	printf("%ld -- Philo %u %s\n", timestamp, philo->num, msg);

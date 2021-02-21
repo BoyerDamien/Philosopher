@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:27:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 16:52:30 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:56:32 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	*check_time(void *philo)
 void	ft_take_forks(t_philo *philo)
 {
 	pthread_t	th;
-	long int	remaining;
+	long	remaining;
 
 	if (philo->n_eat != 0)
 	{

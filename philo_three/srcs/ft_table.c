@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 14:30:08 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/18 20:30:34 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:57:23 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static t_philo	*ft_build_philos(const t_args *args, t_table *table)
 {
 	t_philo			*philos;
-	unsigned int	i;
+	int	i;
 
 	philos = (t_philo *)malloc(args->n_philo * sizeof(t_philo));
 	if (philos)

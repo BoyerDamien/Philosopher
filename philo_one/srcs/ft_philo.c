@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:47:03 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 14:42:42 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:57:23 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	set_arrays(t_philo *this, const t_args *args)
 	this->time_limits[FORK] = 0;
 }
 
-t_philo	ft_philo(const t_args *args, const unsigned int num, \
+t_philo	ft_philo(const t_args *args, const int num, \
 					pthread_mutex_t *forks)
 {
 	t_philo	new;

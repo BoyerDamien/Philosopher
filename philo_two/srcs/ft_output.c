@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 18:47:59 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/18 19:59:08 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:56:32 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_output(t_philo *philo, char *msg)
 {
-	long int	timestamp;
+	long	timestamp;
 
 	sem_wait(philo->lock_dead);
 	sem_wait(philo->lock_output);

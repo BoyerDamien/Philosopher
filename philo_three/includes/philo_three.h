@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 20:34:05 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/18 20:34:13 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:57:23 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ typedef enum e_bool
  *****************************************************************************/
 typedef struct s_args
 {
-	unsigned int	n_philo;
-	unsigned int	time_to_die;
-	unsigned int	time_to_eat;
-	unsigned int	time_to_sleep;
-	unsigned int	n_eat;
+	int	n_philo;
+	int	time_to_die;
+	int	time_to_eat;
+	int	time_to_sleep;
+	int	n_eat;
 }	t_args;
 
 /******************************************************************************
@@ -65,11 +65,11 @@ typedef void	(*t_actions)(struct s_philo *philo);
 
 typedef struct s_philo
 {
-	unsigned int	num;
-	unsigned int	n_fork;
-	unsigned int	forks_taken;
-	unsigned int	n_eat;
-	unsigned int	time_limits[3];
+	int	num;
+	int	n_fork;
+	int	forks_taken;
+	int	n_eat;
+	int	time_limits[3];
 	struct timeval	current_time;
 	struct s_table	*table;
 	sem_t			*forks;
@@ -89,7 +89,7 @@ typedef struct s_philo
  *	Philosopher member functions
  */
 
-t_philo		ft_philo(const t_args *args, const unsigned int num, \
+t_philo		ft_philo(const t_args *args, const int num, \
 						sem_t *forks);
 void		ft_take_forks(t_philo *philo);
 void		ft_think(t_philo *philo);
@@ -102,7 +102,7 @@ void		ft_sleep(t_philo *philo);
 typedef struct s_table
 {
 	t_philo			*philosophers;
-	unsigned int	n;
+	int	n;
 	sem_t			*forks;
 	sem_t			*lock_dead;
 	sem_t			*lock_output;
@@ -129,8 +129,8 @@ t_bool		ft_isnum(const char *str);
 t_bool		ft_check_args(int argc, const char **argv);
 t_args		ft_parse_args(int argc, const char **argv);
 
-long int	ft_time_to_milli(struct timeval *time);
-long int	ft_wait(t_philo *philo, int time);
+long	ft_time_to_milli(struct timeval *time);
+long	ft_wait(t_philo *philo, int time);
 
 int			ft_get_timestamp(t_philo *philo);
 

@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:27:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 11:29:00 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:56:32 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ inline static void	take_forks(t_philo *philo)
 
 inline void	ft_take_forks(t_philo *philo)
 {
-	long int	remaining;
+	long	remaining;
 
 	if (philo->n_fork > 1)
 	{

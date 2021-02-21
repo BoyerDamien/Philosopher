@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:38:41 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 16:52:30 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:56:32 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_think(t_philo *philo)
 {
-	long int	timestamp;
-	long int	remaining;
+	long	timestamp;
+	long	remaining;
 
 	timestamp = ft_get_timestamp(philo);
 	remaining = philo->time_limits[DIED] - timestamp;

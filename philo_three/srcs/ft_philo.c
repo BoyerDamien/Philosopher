@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:47:03 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/18 20:08:19 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:57:23 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	set_methods(t_philo *this)
 	this->take_forks = ft_take_forks;
 }
 
-t_philo	ft_philo(const t_args *args, const unsigned int num, \
+t_philo	ft_philo(const t_args *args, const int num, \
 					sem_t *forks)
 {
 	t_philo	new;
