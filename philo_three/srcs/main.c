@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:03:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 16:56:23 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 17:03:56 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_controller(t_table *table)
 	while (i < table->n)
 	{
 		waitpid(-1, &status, 0);
-		printf("exit status = %d\n", status);
 		if (WEXITSTATUS(status) != 0)
 		{
 			sem_wait(table->lock_output);
