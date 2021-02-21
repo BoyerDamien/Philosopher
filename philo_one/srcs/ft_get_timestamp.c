@@ -6,13 +6,13 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 13:48:30 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 16:43:55 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 11:12:54 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_one.h"
 
-inline static int	diff(struct timeval *n1, struct timeval *n2)
+__attribute_pure__ static int	diff(struct timeval *n1, struct timeval *n2)
 {
 	return (ft_time_to_milli(n1) - ft_time_to_milli(n2));
 }

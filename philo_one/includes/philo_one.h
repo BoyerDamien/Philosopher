@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:14:34 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 17:08:11 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 12:13:10 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 typedef enum e_philo_state
 {
 	THINK,
+	FORK,
 	EAT,
 	SLEEP,
-	FORK,
 	DIED,
 	STOP
 }	t_philo_state;
@@ -51,10 +51,6 @@ typedef struct s_args
 /******************************************************************************
  *				Philosopher object
  *****************************************************************************/
-struct			s_philo;
-struct			s_table;
-typedef void	(*t_actions)(struct s_philo *philo);
-
 typedef struct s_philo
 {
 	int				num;
@@ -62,10 +58,8 @@ typedef struct s_philo
 	int				forks_taken;
 	int				n_eat;
 	int				time_limits[6];
-	struct s_table	*table;
 	struct timeval	current_time;
 	t_bool			*alive;
-	t_actions		actions[4];
 	t_philo_state	state;
 	pthread_t		th;
 	pthread_mutex_t	lock_dead;
@@ -74,18 +68,20 @@ typedef struct s_philo
 
 }	t_philo;
 
+typedef void	(*t_actions)(t_philo *philo);
+
 /*
  *	Philosopher member functions
  */
 
 t_philo		ft_philo(const t_args *args, const unsigned int num, \
-						struct s_table *table);
-void		ft_take_forks(t_philo *philo);
-void		ft_think(t_philo *philo);
-void		ft_eat(t_philo *philo);
-void		ft_do(t_philo *philo);
-void		ft_live(t_philo *philo);
-void		ft_sleep(t_philo *philo);
+						pthread_mutex_t *forks);
+void		ft_take_forks(t_philo *philo) __attribute__((hot));
+void		ft_think(t_philo *philo) __attribute__((hot));
+void		ft_eat(t_philo *philo) __attribute__((hot));
+void		ft_do(t_philo *philo) __attribute__((hot));
+void		ft_sleep(t_philo *philo) __attribute__((hot));
+void		ft_live(t_philo *philo) __attribute__((hot));
 
 /******************************************************************************
  *				Table object
@@ -118,12 +114,13 @@ t_bool		ft_isnum(const char *str);
 t_bool		ft_check_args(int argc, const char **argv);
 t_args		ft_parse_args(int argc, const char **argv);
 
-long int	ft_time_to_milli(struct timeval *time);
+long int	ft_time_to_milli(struct timeval *time) __attribute__((pure));
 
-int			ft_get_timestamp(t_philo *philo);
+int			ft_get_timestamp(t_philo *philo) __attribute__((pure));
 
-void		ft_output(t_philo *philo, char *msg);
+void		ft_output(t_philo *philo, char *msg) __attribute__((hot));
+void		ft_try_actions(t_philo *philo, void (*actions)(t_philo *philo)) \
+							__attribute__((hot));
+void		ft_wait(int time) __attribute__((hot));
 void		ft_finish(t_philo *philo, t_philo_state state);
-void		ft_try_actions(t_philo *philo);
-void		ft_wait(int time);
 #endif
