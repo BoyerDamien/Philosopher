@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:47:03 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 13:52:41 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/21 14:42:42 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	setForks(t_philo *new, const int n, pthread_mutex_t *forks)
 
 static void	set_arrays(t_philo *this, const t_args *args)
 {
-	this->time_limits[DIED] = args->time_to_die + 5;
+	this->time_limits[DIED] = args->time_to_die;
 	this->time_limits[EAT] = args->time_to_eat;
 	this->time_limits[SLEEP] = args->time_to_sleep;
 	this->time_limits[THINK] = 0;
