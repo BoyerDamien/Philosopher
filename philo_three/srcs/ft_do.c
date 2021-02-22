@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 14:51:41 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 15:31:01 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 11:43:21 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ inline void	ft_do(t_philo *philo)
 	gettimeofday(&philo->current_time, NULL);
 	while (philo->state != DIED && philo->state != STOP && *philo->alive)
 		ft_try_actions(philo, g_actions[philo->state]);
-	sem_post(philo->forks);
-	sem_post(philo->forks);
+	if (philo->n_fork == 2)
+	{
+		sem_post(philo->forks);
+		sem_post(philo->forks);
+	}
 }

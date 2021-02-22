@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:58:05 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 19:03:48 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 11:46:59 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_args
 /******************************************************************************
  *				Philosopher object
  *****************************************************************************/
+struct			s_table;
 typedef struct s_philo
 {
 	int				num;
@@ -68,6 +69,7 @@ typedef struct s_philo
 	struct timeval	current_time;
 	t_bool			*alive;
 	t_philo_state	state;
+	struct s_table	*table;
 	pid_t			process;
 	sem_t			*forks;
 	sem_t			*lock_output;
