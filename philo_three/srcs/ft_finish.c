@@ -6,13 +6,13 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:30:44 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 11:42:49 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 12:40:08 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_three.h"
 
-inline static void	output(t_philo *philo, char *msg)
+static void	output(t_philo *philo, char *msg)
 {
 	long	timestamp;
 

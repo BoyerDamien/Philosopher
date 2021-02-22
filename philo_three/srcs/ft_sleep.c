@@ -6,13 +6,13 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:10:34 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 13:52:16 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 12:40:08 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_three.h"
 
-inline void	ft_sleep(t_philo *philo)
+void	ft_sleep(t_philo *philo)
 {
 	ft_output(philo, "is sleeping");
 	ft_wait(philo->time_limits[SLEEP]);

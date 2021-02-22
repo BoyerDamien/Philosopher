@@ -6,13 +6,13 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 15:37:06 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/20 16:40:00 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 12:40:08 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_one.h"
 
-inline static void	clean_arrays(t_table *table)
+static void	clean_arrays(t_table *table)
 {
 	int	i;
 

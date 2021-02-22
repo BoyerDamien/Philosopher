@@ -6,13 +6,13 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 18:47:59 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 10:20:56 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 12:40:08 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_one.h"
 
-inline void	ft_output(t_philo *philo, char *msg)
+void	ft_output(t_philo *philo, char *msg)
 {
 	int	timestamp;
 

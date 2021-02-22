@@ -6,13 +6,13 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:27:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 15:26:07 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 12:40:08 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_three.h"
 
-inline static void	*check_time(void *philo)
+static void	*check_time(void *philo)
 {
 	t_philo	*p;
 
@@ -29,7 +29,7 @@ inline static void	*check_time(void *philo)
 	return (NULL);
 }
 
-inline static void	take_forks(t_philo *philo)
+static void	take_forks(t_philo *philo)
 {
 	pthread_t	th;
 
@@ -43,7 +43,7 @@ inline static void	take_forks(t_philo *philo)
 	ft_output(philo, "has taken a fork");
 }
 
-inline void	ft_take_forks(t_philo *philo)
+void	ft_take_forks(t_philo *philo)
 {
 	long	remaining;
 

@@ -6,7 +6,7 @@
 #    By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/20 09:03:17 by dboyer            #+#    #+#              #
-#    Updated: 2021/02/21 14:36:55 by dboyer           ###   ########.fr        #
+#    Updated: 2021/02/22 12:40:53 by dboyer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ OBJS				= 	$(SRCS:.c=.o)
 #								COMPILATION
 ################################################################################
 
-CFLAGS  			= 	-Werror -Wall -Wextra -Ofast ${INCLUDES}
+CFLAGS  			= 	-Werror -Wall -Wextra -Ofast -pedantic ${INCLUDES}
 CC      			= 	clang
 RM      			= 	rm -f
 

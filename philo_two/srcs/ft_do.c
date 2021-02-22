@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 14:51:41 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 15:31:01 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 12:40:08 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ const t_actions	g_actions[4] = {
 	ft_sleep,
 };
 
-inline void	ft_do(t_philo *philo)
+void	ft_do(t_philo *philo)
 {
 	gettimeofday(&philo->current_time, NULL);
 	while (philo->state != DIED && philo->state != STOP && *philo->alive)

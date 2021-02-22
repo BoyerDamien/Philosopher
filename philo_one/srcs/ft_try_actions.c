@@ -6,13 +6,13 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:12:49 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/21 14:56:32 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 12:40:08 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_one.h"
 
-inline void	ft_try_actions(t_philo *philo, void (*action)(t_philo *philo))
+void	ft_try_actions(t_philo *philo, void (*action)(t_philo *philo))
 {
 	long	timestamp;
 	long	remain;
