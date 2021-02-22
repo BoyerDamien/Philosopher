@@ -12,7 +12,7 @@
 
 #include "../includes/philo_one.h"
 
-static void	setForks(t_philo *new, const int n, pthread_mutex_t *forks)
+static void	set_forks(t_philo *new, const int n, pthread_mutex_t *forks)
 {
 	new->forks[1] = &forks[new->num % n];
 	new->forks[0] = &forks[new->num - 1];
@@ -42,7 +42,7 @@ t_philo	ft_philo(const t_args *args, const int num, \
 		new.state = SLEEP;
 	new.forks_taken = 0;
 	set_arrays(&new, args);
-	setForks(&new, args->n_philo, forks);
+	set_forks(&new, args->n_philo, forks);
 	pthread_mutex_init(&new.lock_dead, NULL);
 	return (new);
 }
