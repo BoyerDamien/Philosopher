@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:27:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 15:43:00 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 19:33:24 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ static void	*check_time(void *philo)
 	while (p->forks_taken != 2)
 	{
 		if (ft_get_timestamp(p) > p->time_limits[DIED])
-		{
 			ft_finish(p, DIED);
-			return (NULL);
-		}
 		ft_wait(1);
 	}
 	return (NULL);

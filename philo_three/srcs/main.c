@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:03:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 15:45:20 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 19:12:53 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,12 @@
 void	ft_controller(t_table *table)
 {
 	int	status;
-	int	i;
 
-	i = 0;
-	while (i < table->n)
+	status = 0;
+	while (waitpid(-1, &status, 0) > 0)
 	{
-		waitpid(-1, &status, 0);
-		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
-		{
+		if (WEXITSTATUS(status) == 1)
 			ft_kill_threads(table);
-			break ;
-		}
-		i++;
 	}
 	ft_clean_table(table);
 }
