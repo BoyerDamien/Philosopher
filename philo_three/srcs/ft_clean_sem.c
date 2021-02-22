@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clean_table.c                                   :+:      :+:    :+:   */
+/*   ft_clean_sem.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 15:37:06 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 14:50:07 by dboyer           ###   ########.fr       */
+/*   Created: 2021/02/22 14:25:57 by dboyer            #+#    #+#             */
+/*   Updated: 2021/02/22 14:36:49 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_three.h"
 
-void	ft_clean_table(t_table *table)
+void	ft_clean_sem(t_table *table)
 {
-	if (table && table->philosophers)
-	{
-		ft_clean_sem(table);
-		free(table->philosophers);
-		table->philosophers = NULL;
-		table = NULL;
-	}
+	sem_unlink(SEM_FORKS);
+	sem_unlink(SEM_OUTPUT);
+	sem_close(table->lock_output);
+	sem_close(table->forks);
 }

@@ -6,7 +6,7 @@
 #    By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/20 09:03:17 by dboyer            #+#    #+#              #
-#    Updated: 2021/02/22 12:39:12 by dboyer           ###   ########.fr        #
+#    Updated: 2021/02/22 14:28:55 by dboyer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ SRCS    			=	./srcs/ft_atoi.c \
 						./srcs/ft_output.c\
 						./srcs/ft_try_actions.c\
 						./srcs/ft_finish.c\
-						./srcs/ft_kill_threads.c
+						./srcs/ft_kill_threads.c\
+						./srcs/ft_clean_sem.c
                         
 INCLUDES			=	-I ./includes
 

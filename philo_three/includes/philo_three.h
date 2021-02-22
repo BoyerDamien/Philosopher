@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:58:05 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 11:46:59 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 14:27:17 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ void		ft_try_actions(t_philo *philo, void (*actions)(t_philo *philo)) \
 							__attribute__((hot));
 void		ft_wait(int time) __attribute__((hot));
 void		ft_finish(t_philo *philo, t_philo_state state);
-
+void		ft_clean_sem(t_table *table);
 void		ft_kill_threads(t_table *table);
+
 #endif
