@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish.c                                        :+:      :+:    :+:   */
+/*   ft_finish_linux.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:30:44 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/23 10:42:39 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/23 16:13:57 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,15 @@ void	ft_finish(t_philo *philo, t_philo_state state)
 {
 	philo->state = state;
 	sem_wait(philo->lock_output);
-	if (*philo->alive)
+	if (state == DIED)
 	{
-		if (state == DIED)
-		{
-			output(philo, "has died");
-			*(philo->alive) = false;
-			ft_clean_sem(philo->table);
-			ft_clean_table(philo->table);
-			exit(1);
-		}
-		else if (state == STOP)
-			output(philo, "has finished");
+		output(philo, "has died");
+		ft_clean_sem(philo->table);
+		ft_clean_table(philo->table);
+		exit(1);
 	}
+	else if (state == STOP)
+		output(philo, "has finished");
 	sem_post(philo->lock_output);
 	ft_clean_table(philo->table);
 	exit(0);

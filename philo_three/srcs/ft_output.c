@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 18:47:59 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 12:40:08 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/23 16:14:04 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_output(t_philo *philo, char *msg)
 
 	timestamp = ft_get_timestamp(philo);
 	sem_wait(philo->lock_output);
-	if (*philo->alive)
-		printf("%d -- Philo %u %s\n", timestamp, philo->num, msg);
+	printf("%d -- Philo %u %s\n", timestamp, philo->num, msg);
 	sem_post(philo->lock_output);
 }

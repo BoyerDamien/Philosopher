@@ -6,7 +6,7 @@
 #    By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/20 09:03:17 by dboyer            #+#    #+#              #
-#    Updated: 2021/02/22 14:28:55 by dboyer           ###   ########.fr        #
+#    Updated: 2021/02/23 16:11:36 by dboyer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ################################################################################
 
 NAME    			=	philo_three
-
+OS					=	$(shell uname)
 MAIN				= 	./srcs/main.c
 
 SRCS    			=	./srcs/ft_atoi.c \
@@ -40,10 +40,15 @@ SRCS    			=	./srcs/ft_atoi.c \
 						./srcs/ft_diff.c\
 						./srcs/ft_output.c\
 						./srcs/ft_try_actions.c\
-						./srcs/ft_finish.c\
 						./srcs/ft_kill_threads.c\
 						./srcs/ft_clean_sem.c
-                        
+
+ifeq ($(OS), Linux)
+	SRCS += ./srcs/ft_finish_linux.c
+else
+	SRCS += ./srcs/ft_finish_mac.c
+endif
+
 INCLUDES			=	-I ./includes
 
 HEADERS				=	./includes/philo_three.h

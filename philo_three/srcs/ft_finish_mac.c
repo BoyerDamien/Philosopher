@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_do.c                                            :+:      :+:    :+:   */
+/*   ft_finish_mac.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 14:51:41 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/23 16:14:16 by dboyer           ###   ########.fr       */
+/*   Created: 2021/02/18 15:30:44 by dboyer            #+#    #+#             */
+/*   Updated: 2021/02/23 16:13:27 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_three.h"
 
-const t_actions	g_actions[4] = {
-	ft_think,
-	ft_take_forks,
-	ft_eat,
-	ft_sleep,
-};
-
-void	ft_do(t_philo *philo)
+static void	output(t_philo *philo, char *msg)
 {
-	gettimeofday(&philo->current_time, NULL);
-	while (philo->state != DIED && philo->state != STOP)
-		ft_try_actions(philo, g_actions[philo->state]);
-	if (philo->n_fork == 2)
+	long	timestamp;
+
+	timestamp = ft_get_timestamp(philo);
+	printf("%ld -- Philo %u %s\n", timestamp, philo->num, msg);
+}
+
+void	ft_finish(t_philo *philo, t_philo_state state)
+{
+	philo->state = state;
+	sem_wait(philo->lock_output);
+	if (state == DIED)
 	{
-		sem_post(philo->forks);
-		sem_post(philo->forks);
+		output(philo, "has died");
+		exit(1);
 	}
+	else if (state == STOP)
+		output(philo, "has finished");
+	sem_post(philo->lock_output);
+	exit(0);
 }
