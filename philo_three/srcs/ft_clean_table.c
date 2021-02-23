@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 15:37:06 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 19:06:09 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 20:05:45 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_clean_table(t_table *table)
 {
 	if (table && table->philosophers)
 	{
-		ft_clean_sem(table);
 		free(table->philosophers);
 		table->philosophers = NULL;
 		table = NULL;

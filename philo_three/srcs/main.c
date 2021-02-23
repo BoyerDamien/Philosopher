@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:03:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 19:12:53 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 20:05:56 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_controller(t_table *table)
 		if (WEXITSTATUS(status) == 1)
 			ft_kill_threads(table);
 	}
+	ft_clean_sem(table);
 	ft_clean_table(table);
 }
 

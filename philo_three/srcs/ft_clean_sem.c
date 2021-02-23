@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 14:25:57 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 18:22:44 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/22 20:11:02 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,6 @@ void	ft_clean_sem(t_table *table)
 {
 	sem_close(table->lock_output);
 	sem_close(table->forks);
+	sem_unlink(SEM_FORKS);
+	sem_unlink(SEM_OUTPUT);
 }

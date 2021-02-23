@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:30:44 by dboyer            #+#    #+#             */
-/*   Updated: 2021/02/22 19:23:27 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/02/23 10:42:39 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_finish(t_philo *philo, t_philo_state state)
 		{
 			output(philo, "has died");
 			*(philo->alive) = false;
+			ft_clean_sem(philo->table);
 			ft_clean_table(philo->table);
 			exit(1);
 		}
